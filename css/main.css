@@ -1,0 +1,19 @@
+body,
+html {
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+* {
+    transition: all 0.1 ease;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-content: space-around;
+}

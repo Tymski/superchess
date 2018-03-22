@@ -1,0 +1,19 @@
+.canvas{
+
+}
+
+.backgroundCanvas{
+}
+
+
+.canvasWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.canvasWrapper canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
