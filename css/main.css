@@ -1,6 +1,7 @@
 body,
 html {
     background-color: #000;
+    color: #fff;
     width: 100%;
     height: 100%;
     margin: auto;
@@ -16,4 +17,9 @@ html {
     height: 100%;
     justify-content: space-around;
     align-content: space-around;
+}
+
+
+.pieces{
+    font-size:100px;
 }
