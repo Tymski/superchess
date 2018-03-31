@@ -1,5 +1,5 @@
 //#region UNITS
-unit = 100; // size of one board square in pixels
+unit = 60; // size of one board square in pixels
 //#endregion UNITS
 
 //#region COLORS 

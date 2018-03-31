@@ -1,7 +1,11 @@
+// Everything here should be refactored, some things are made this way just for a quick test.
+
 
 
 n = 8; // this should be Board class attribute
 m = 8; // this should be Board class attribute
+
+// Unit should be board dependent
 
 canvas = document.getElementById('canvas');                     // to get autocompletion, otherwise this line is useless
 backgroundCanvas = document.getElementById('backgroundCanvas'); // to get autocompletion, otherwise this line is useless
@@ -100,7 +104,7 @@ function drawPositionOnCanvas(position) {
     }
   }
 }
-drawPositionOnCanvas(currentBoard);
+// drawPositionOnCanvas(currentBoard);
 
 // Nonsense code for first experiments with clicking
 // function click(x, y) {
@@ -151,5 +155,66 @@ canvas.addEventListener("pointerup", onPointerUp);
 
 function handleDrag() {
   console.log("Drag =", JSON.stringify(drag));
+  b.pieces.move(drag.start,drag.end);
 }
 
+
+
+class Board{
+  constructor({}){
+    this.n;
+    this.m;
+    this.pieces = new Pieces({});
+  }
+
+  move(from,to){
+    this.pieces.move(from, to);
+  }
+}
+
+
+
+pieces = new Set();
+pieces.add(new Piece({color:black,symbol:symbols.rook,x:0,y:0,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.knight,x:1,y:0,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.bishop,x:2,y:0,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.queen,x:3,y:0,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.king,x:4,y:0,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.bishop,x:5,y:0,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.knight,x:6,y:0,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.rook,x:7,y:0,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.pawn,x:0,y:1,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.pawn,x:1,y:1,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.pawn,x:2,y:1,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.pawn,x:3,y:1,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.pawn,x:4,y:1,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.pawn,x:5,y:1,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.pawn,x:6,y:1,context:ctx}));
+pieces.add(new Piece({color:black,symbol:symbols.pawn,x:7,y:1,context:ctx}));
+
+pieces.add(new Piece({color:white,symbol:symbols.pawn,x:0,y:6,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.pawn,x:1,y:6,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.pawn,x:2,y:6,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.pawn,x:3,y:6,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.pawn,x:4,y:6,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.pawn,x:5,y:6,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.pawn,x:6,y:6,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.pawn,x:7,y:6,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.rook,x:0,y:7,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.knight,x:1,y:7,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.bishop,x:2,y:7,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.queen,x:3,y:7,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.king,x:4,y:7,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.bishop,x:5,y:7,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.knight,x:6,y:7,context:ctx}));
+pieces.add(new Piece({color:white,symbol:symbols.rook,x:7,y:7,context:ctx}));
+pieces.add(new Piece({color:white,symbol:"鄒",x:3,y:3,context:ctx}));
+pieces.add(new Piece({color:white,symbol:"𓀬",x:4,y:4,context:ctx}));
+pieces.add(new Piece({color:white,symbol:"𓅷",x:3,y:4,context:ctx}));
+pieces.add(new Piece({color:white,symbol:"𒐴",x:4,y:3,context:ctx}));
+
+b = new Board({});
+b.pieces = new Pieces({});
+b.pieces.pieces = pieces;
+
+b.pieces.draw();

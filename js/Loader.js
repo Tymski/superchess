@@ -7,9 +7,9 @@ console.log('Loader.js');
 
     let scriptsToLoad = [
         'js/Utils.js',
-        'js/Board.js',
         'js/Piece.js',
-        'js/Pieces.js'
+        'js/Pieces.js',
+        'js/Board.js'
     ];
 
     let stylesToLoad = [
